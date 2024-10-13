@@ -1,0 +1,24 @@
+run:
+  go: "1.23"
+  timeout: 5m
+linters:
+  enable-all: true
+  disable:
+    # disable
+    - depguard
+    - exhaustruct
+    - gochecknoglobals
+    - gochecknoinits
+    - gomnd
+    - lll
+    - mnd
+    - testpackage
+    - varnamelen
+    - wrapcheck
+
+linters-settings:
+  gci:
+    sections:
+      - standard
+      - default
+      - prefix(github.com/forensicanalysis/go-resources)

@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/cugu/go-resources"
+	"github.com/forensicanalysis/go-resources"
 )
 
 var (
@@ -25,6 +25,7 @@ type nope struct{}
 
 func main() {
 	t0 := time.Now()
+
 	flag.StringVar(&pkg, "package", pkg, "`name` of the package to generate")
 	flag.StringVar(&varName, "var", varName, "`name` of the variable to assign the virtual filesystem to")
 	flag.StringVar(&tag, "tag", tag, "`tag` to use for the generated package (default no tag)")
@@ -53,6 +54,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+
 		for _, m := range matches {
 			info, err := os.Stat(m)
 
@@ -65,6 +67,7 @@ func main() {
 	for path := range files {
 		name := filepath.ToSlash(path)
 		name = strings.TrimPrefix(name, trimPath)
+
 		err := res.AddFile(name, path)
 		if err != nil {
 			log.Fatal(err)

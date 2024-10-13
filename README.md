@@ -1,30 +1,23 @@
-This is a simplified fork of github.com/omeid/go-resources/cmd/resources
+# go-resources
 
-# Resources [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/cugu/go-resources)  [![Build Status](https://travis-ci.org/cugu/go-resources.svg?branch=master)](https://travis-ci.org/cugu/go-resources) [![Go Report Card](https://goreportcard.com/badge/github.com/cugu/go-resources?bust=true)](https://goreportcard.com/report/github.com/cugu/go-resources)
-Unfancy resources embedding with Go.
+> [!IMPORTANT]  
+> You should use the `embed` package instead of this tool.
+> See https://pkg.go.dev/embed for more information.
+>
+> Only use this tool if you need to support older (< 1.16) versions of Go.
 
-- No blings.
-- No runtime dependency.
-- Idiomatic Library First design.
+go-resources is a tool to embed files into Go source code.
 
-### Dude, Why?
-
-Yes, there is quite a lot of projects that handles resource embedding
-but they come with more bling than you ever need and you often end up
-with having dependencies for your end project. Not this time.
-
-### Installing
-
-Just go get it!
+## Installation
 
 ```sh
-$ go get github.com/cugu/go-resources/cmd/resources
+go install github.com/forensicanalysis/go-resources@latest
 ```
 
-### Usage
+## Usage
 
-```
-$ resources -h
+```sh
+resources -h
 Usage resources:
   -output filename
         filename to write the output to
@@ -38,7 +31,7 @@ Usage resources:
         name of the variable to assign the virtual filesystem to (default "FS")
 ```
 
-### Optimization
+## Optimization
 
 Generating resources result in a very high number of lines of code, 1MB
 of resources result about 5MB of code at over 87,000 lines of code. This
@@ -83,6 +76,6 @@ func main() {
 }
 ```
 
-### Credits
+## Credits
 
-This is a fork of github.com/omeid/go-resources/cmd/resources
+This is a fork of https://github.com/omeid/go-resources
