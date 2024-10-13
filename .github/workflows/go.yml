@@ -1,26 +1,29 @@
 name: Go
-on: [push]
-jobs:
 
-  build:
-    name: Build
+on:
+  push: { branches: [ main ] }
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: { go-version: '1.23' }
 
-    - name: Set up Go 1.13
-      uses: actions/setup-go@v1
-      with:
-        go-version: 1.13
-      id: go
+      - run: make generate
 
-    - name: Check out code into the Go module directory
-      uses: actions/checkout@v1
+      - uses: golangci/golangci-lint-action@v6
+        with: { version: 'v1.61' }
 
-    - name: Get dependencies
-      run: go mod download
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: { go-version: '1.23' }
 
-    - name: Generate test cases
-      run: go generate
-
-    - name: Build
-      run: go test -v ./...
+      - run: make test

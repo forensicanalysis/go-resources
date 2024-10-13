@@ -1,3 +1,3 @@
-module github.com/cugu/go-resources
+module github.com/forensicanalysis/go-resources
 
-go 1.12
+go 1.23

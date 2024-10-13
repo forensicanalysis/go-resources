@@ -1,6 +1,4 @@
 cmd/resources/resources
-tags
 testdata/resources
 testdata/generated
-.vscode
-.DS_Store
+coverage.out
