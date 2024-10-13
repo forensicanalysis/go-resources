@@ -14,7 +14,7 @@ jobs:
         with: { go-version: '1.23' }
 
       - uses: golangci/golangci-lint-action@v6
-        with: { version: 'v1.59' }
+        with: { version: 'v1.61' }
 
   test:
     name: Test
